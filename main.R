@@ -6,7 +6,9 @@ source('./export.R')
 
 # Load data
 library(readxl)
-disponible <- read_excel('./data_input/movimientos.xlsx', skip=3) %>% select(fecha=Fecha, total=Disponible)
+disponible <- read_excel('./data_input/movimientos.xlsx', skip=3) %>%
+  select(fecha=Fecha, total=Disponible) %>% 
+  distinct(fecha, .keep_all = TRUE)
 
 
 # Plot it
